@@ -10,10 +10,10 @@
     "analyze": "vite build"
   },
   "dependencies": {
-    "@tanstack/react-virtual": "latest",
-    "lodash": "latest",
-    "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "@tanstack/react-virtual": "^3.14.2",
+    "lodash": "^4.18.1",
+    "react": "^19.2.7",
+    "react-dom": "^19.2.7"
   },
   "devDependencies": {
     "@vitejs/plugin-react": "latest",
