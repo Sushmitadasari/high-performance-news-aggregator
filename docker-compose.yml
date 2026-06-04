@@ -1,0 +1,25 @@
+version: "3.9"
+
+services:
+  news-app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    container_name: high-performance-news-aggregator
+
+    ports:
+      - "5173:5173"
+
+    environment:
+      - PORT=5173
+      - VITE_HN_API=https://hacker-news.firebaseio.com/v0
+
+    healthcheck:
+      test: ["CMD", "wget", "--spider", "http://localhost:5173"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 20s
+
+    restart: unless-stopped
