@@ -19,5 +19,18 @@
     "@vitejs/plugin-react": "latest",
     "rollup-plugin-visualizer": "latest",
     "vite": "latest"
-  }
+  },
+  "description": "",
+  "main": "vite.config.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Sushmitadasari/high-performance-news-aggregator.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Sushmitadasari/high-performance-news-aggregator/issues"
+  },
+  "homepage": "https://github.com/Sushmitadasari/high-performance-news-aggregator#readme"
 }
