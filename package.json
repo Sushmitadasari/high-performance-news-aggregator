@@ -16,9 +16,9 @@
     "react-dom": "^19.2.7"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "latest",
-    "rollup-plugin-visualizer": "latest",
-    "vite": "latest"
+    "@vitejs/plugin-react": "^6.0.2",
+    "rollup-plugin-visualizer": "^7.0.1",
+    "vite": "^8.0.16"
   },
   "description": "",
   "main": "vite.config.js",
