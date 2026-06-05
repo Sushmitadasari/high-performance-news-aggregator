@@ -1,12 +1,8 @@
 import React from "react";
 import { formatDate } from "../utils/formatter";
-
 function ArticleItem({ article }) {
   return (
-    <div
-      className="article"
-      data-testid="article-item"
-    >
+    <div className="article">
       <a
         href={article.url}
         target="_blank"
@@ -15,19 +11,19 @@ function ArticleItem({ article }) {
         <h3>{article.title}</h3>
       </a>
 
-      <p>
-        Score: {article.score}
-      </p>
+      <p>Score: {article.score}</p>
+
+      <p>By: {article.by}</p>
 
       <p>
-        By: {article.by}
-      </p>
-
-      <p>
-        {formatDate(article.time)}
+        {
+          new Date(
+            article.time * 1000
+          ).toLocaleString()
+        }
       </p>
     </div>
   );
 }
 
-export default React.memo(ArticleItem);
+export default ArticleItem;

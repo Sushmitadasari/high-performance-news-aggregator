@@ -1,43 +1,32 @@
 export default function HeavyInfoPanel() {
-  const metrics = Array.from(
-    { length: 5000 },
+  const data = Array.from(
+    { length: 20000 },
     (_, i) => ({
       id: i,
       value: Math.random()
     })
   );
 
-  const average =
-    metrics.reduce(
-      (sum, item) =>
-        sum + item.value,
-      0
-    ) / metrics.length;
+  const total = data.reduce(
+    (sum, item) =>
+      sum + item.value,
+    0
+  );
 
   return (
-    <div
-      style={{
-        background: "#fff",
-        padding: "20px",
-        borderRadius: "10px",
-        marginBottom: "20px"
-      }}
-    >
-      <h3>Performance Analytics</h3>
+    <div className="article">
+      <h3>
+        Heavy Analytics Panel
+      </h3>
 
       <p>
-        Dataset Size:
-        {metrics.length}
+        Records:
+        {data.length}
       </p>
 
       <p>
-        Average Value:
-        {average.toFixed(4)}
-      </p>
-
-      <p>
-        Lazy loaded using
-        React.lazy + Suspense.
+        Total:
+        {total.toFixed(2)}
       </p>
     </div>
   );

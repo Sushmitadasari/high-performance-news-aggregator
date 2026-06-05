@@ -1,17 +1,17 @@
-import React, { Suspense, useState } from "react";
+import { useState } from "react";
+
 import Hero from "./components/Hero";
 import SearchBar from "./components/SearchBar";
 import SortButton from "./components/SortButton";
 import VirtualizedList from "./components/VirtualizedList";
 import StatsPanel from "./components/StatsPanel";
+import HeavyInfoPanel from "./components/HeavyInfoPanel";
+
 import useNews from "./hooks/useNews";
 
-const HeavyInfoPanel = React.lazy(() =>
-  import("./components/HeavyInfoPanel")
-);
-
 export default function App() {
-  const [ascending, setAscending] = useState(false);
+  const [ascending, setAscending] =
+    useState(false);
 
   const {
     stories,
@@ -26,27 +26,36 @@ export default function App() {
       <Hero />
 
       <div className="toolbar">
-        <SearchBar value={search} onChange={setSearch} />
+        <SearchBar
+          value={search}
+          onChange={setSearch}
+        />
 
         <SortButton
           ascending={ascending}
-          onToggle={() => setAscending((prev) => !prev)}
+          onToggle={() =>
+            setAscending(
+              (prev) => !prev
+            )
+          }
         />
       </div>
 
       <StatsPanel
         totalStories={stories.length}
-        visibleStories={filteredStories.length}
+        visibleStories={
+          filteredStories.length
+        }
       />
 
-      <Suspense fallback={<div>Loading analytics panel...</div>}>
-        <HeavyInfoPanel />
-      </Suspense>
+      <HeavyInfoPanel />
 
       {loading ? (
-        <div className="loader">Loading stories...</div>
+        <div>Loading...</div>
       ) : (
-        <VirtualizedList stories={filteredStories} />
+        <VirtualizedList
+          stories={filteredStories}
+        />
       )}
     </div>
   );

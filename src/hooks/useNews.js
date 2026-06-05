@@ -1,27 +1,22 @@
 import { useEffect, useMemo, useState } from "react";
-import sortBy from "lodash/sortBy";
+import _ from "lodash";
 
 import { fetchTopStories } from "../api/hackerNews";
-import useDebounce from "./useDebounce";
 
 export default function useNews(ascending) {
   const [stories, setStories] = useState([]);
   const [loading, setLoading] = useState(true);
   const [search, setSearch] = useState("");
 
-  const debouncedSearch = useDebounce(search, 300);
-
   useEffect(() => {
     async function load() {
-      try {
-        setLoading(true);
+      setLoading(true);
 
-        const data = await fetchTopStories();
+      const data = await fetchTopStories();
 
-        setStories(data);
-      } finally {
-        setLoading(false);
-      }
+      setStories(data);
+
+      setLoading(false);
     }
 
     load();
@@ -31,17 +26,17 @@ export default function useNews(ascending) {
     let result = stories.filter((story) =>
       story?.title
         ?.toLowerCase()
-        .includes(debouncedSearch.toLowerCase())
+        .includes(search.toLowerCase())
     );
 
-    result = sortBy(result, "score");
+    result = _.sortBy(result, "score");
 
     if (!ascending) {
       result.reverse();
     }
 
     return result;
-  }, [stories, debouncedSearch, ascending]);
+  }, [stories, search, ascending]);
 
   return {
     stories,

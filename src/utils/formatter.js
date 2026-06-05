@@ -1,16 +1,5 @@
-const formatter =
-  new Intl.DateTimeFormat(
-    "en-US",
-    {
-      dateStyle: "medium",
-      timeStyle: "short"
-    }
-  );
-
-export function formatDate(
-  unixTimestamp
-) {
-  return formatter.format(
-    new Date(unixTimestamp * 1000)
-  );
+export function formatDate(timestamp) {
+  return new Date(
+    timestamp * 1000
+  ).toLocaleString();
 }

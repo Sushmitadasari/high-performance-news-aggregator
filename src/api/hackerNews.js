@@ -9,15 +9,17 @@ export async function fetchTopStories() {
 
   const ids = await idsResponse.json();
 
-  const stories = await Promise.all(
-    ids.slice(0, 500).map(async (id) => {
-      const response = await fetch(
-        `${API_BASE}/item/${id}.json`
-      );
+  const stories = [];
 
-      return response.json();
-    })
-  );
+  for (const id of ids.slice(0, 500)) {
+    const response = await fetch(
+      `${API_BASE}/item/${id}.json`
+    );
+
+    const story = await response.json();
+
+    stories.push(story);
+  }
 
   return stories.filter(Boolean);
 }

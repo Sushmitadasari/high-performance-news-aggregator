@@ -5,7 +5,7 @@ export default function SearchBar({
   return (
     <input
       className="search-input"
-      placeholder="Search stories..."
+      placeholder="Search..."
       value={value}
       onChange={(e) =>
         onChange(e.target.value)
