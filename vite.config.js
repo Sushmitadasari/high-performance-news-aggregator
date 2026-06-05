@@ -14,18 +14,26 @@ export default defineConfig({
   ],
 
   build: {
-    sourcemap: false,
+  sourcemap: false,
 
-    rollupOptions: {
-      output: {
-        manualChunks: {
-          react: ["react", "react-dom"],
-          virtualizer: ["@tanstack/react-virtual"],
-          lodash: ["lodash"]
+  rollupOptions: {
+    output: {
+      manualChunks(id) {
+        if (id.includes("react")) {
+          return "react";
+        }
+
+        if (id.includes("@tanstack/react-virtual")) {
+          return "virtualizer";
+        }
+
+        if (id.includes("lodash")) {
+          return "lodash";
         }
       }
     }
-  },
+  }
+},
 
   server: {
     host: "0.0.0.0",
