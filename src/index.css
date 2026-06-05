@@ -1,0 +1,65 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family:
+    Inter,
+    system-ui,
+    sans-serif;
+  background: #f7f8fc;
+}
+
+.app {
+  max-width: 1200px;
+  margin: auto;
+  padding: 20px;
+}
+
+.toolbar {
+  display: flex;
+  gap: 12px;
+  margin: 20px 0;
+}
+
+.loader {
+  text-align: center;
+  padding: 40px;
+}
+
+.hero img {
+  width: 100%;
+  border-radius: 12px;
+}
+
+.search-input {
+  flex: 1;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+}
+
+.sort-btn {
+  padding: 12px 18px;
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+}
+
+.article {
+  background: white;
+  margin-bottom: 10px;
+  padding: 16px;
+  border-radius: 10px;
+  box-shadow: 0 1px 4px rgba(0,0,0,.08);
+}
+
+.article a {
+  text-decoration: none;
+  color: #111;
+}
+
+.stats {
+  margin: 15px 0;
+}
